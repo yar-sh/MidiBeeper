@@ -125,6 +125,11 @@ int main(int argc, char** argv)
 		if (songTick >= eventPoints[i].timeMs)
 		{
 			// Play all notes
+			// As you can see - there is no Beep function at all. The reason for this is
+			// that Beep is a blocking function. While Beep is running - the entire program
+			// waits for it to finish playing the sound. I tested it with multithreading and
+			// async calls, but every Beep call interrupts previously playing beep, so instead
+			// I cut note frequencies into wav files that actually can be played asynchronously
 			for each (__Note n in eventPoints[i].notes)
 				mciSendString(("play sounds/" + to_string(n.frequencyHz) + ".wav to " + to_string(n.durationMs)).c_str(), NULL, NULL, NULL);
 
