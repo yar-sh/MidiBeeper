@@ -44,6 +44,7 @@ dlldata.c
 project.lock.json
 artifacts/
 
+*.ttf
 *_i.c
 *_p.c
 *_i.h
@@ -301,3 +302,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+TODO.txt
